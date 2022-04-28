@@ -1,0 +1,70 @@
+
+Criação da Tabela "tbl_cliente"
+CREATE TABLE `dbvendadja`.`tbl_cliente` ( `id_cliente` INT NOT NULL AUTO_INCREMENT ,  
+                                          `cli_nome` VARCHAR(300) NOT NULL , 
+                                          `cli_endereco` VARCHAR(350) NOT NULL ,  
+                                          `cli_bairro` VARCHAR(300) NOT NULL ,  
+                                          `cli_cidade` VARCHAR(200) NOT NULL ,  
+                                          `cli_uf` VARCHAR(2) NOT NULL ,  
+                                          `cli_cep` VARCHAR(9) NOT NULL ,  
+                                          `cli_telefone` VARCHAR(15) NULL ,   
+ PRIMARY KEY  (`id_cliente`)) ENGINE = InnoDB;
+​
+
+
+Criação da Tabela "tbl_usuario"
+
+CREATE TABLE `dbvendadja`.`tbl_usuario` ( `id_usuario` INT(10) NOT NULL AUTO_INCREMENT , 
+                                          `usu_nome` VARCHAR(150) NOT NULL , 
+                                          `usu_login` VARCHAR(100) NOT NULL , 
+                                          `usu_senha` VARCHAR(20) NOT NULL ,
+ PRIMARY KEY (`id_usuario`)) ENGINE = InnoDB;
+
+
+Criação da Tabela"tbl_produto"
+
+
+CREATE TABLE `dbvendadja`.`tbl_produto` ( `pk_id_Produto` INT NOT NULL AUTO_INCREMENT , 
+                                          `pro_nome` VARCHAR(300) NOT NULL , 
+                                          `pro_valor` DOUBLE NOT NULL , 
+                                          `pro_estoque` INT NOT NULL ,    
+PRIMARY KEY  (`pk_id_Produto`)) ENGINE = InnoDB;
+
+
+Criação da Tabela"tbl_vendas"
+
+CREATE TABLE `dbvendadja`.`tbl_vendas` ( `pk_id_venda` BIGINT NOT NULL AUTO_INCREMENT , 
+                                          `pk_cliente` BIGINT UNSIGNED NOT NULL ,  
+                                          `ven_data_venda` DATE NOT NULL , 
+                                          `ven_valor_liquido` DOUBLE NOT NULL , 
+                                          `ven_valor_bruto` DOUBLE NOT NULL ,  
+                                          `ven_desconto` DOUBLE NOT NULL ,    
+PRIMARY KEY  (`pk_id_venda`)) ENGINE = InnoDB;
+
+
+
+Criação da Tabela"tbl_vendas_produtos"
+
+CREATE TABLE `dbvendadja`.`tbl_vendas_produtos` ( `pk_id_venda_produto` BIGINT NOT NULL , 
+                                                  `pk_produto` BIGINT UNSIGNED NOT NULL ,  
+                                                  `pk_vendas` BIGINT UNSIGNED NOT NULL ,  
+                                                  `ven_pro_valor` DOUBLE NOT NULL , 
+                                                  `ven_pro_quantidade` INT NOT NULL ,   
+PRIMARY KEY  (`pk_id_venda_produto`)) ENGINE = InnoDB;
+
+
+
+
+
+
+Inserindo dados na tabela 
+
+INSERT INTO `tbl_cliente` (`pk_id_cliente`, 
+			   `cli_nome`, 
+                           `cli_endereco`, 
+                           `cli_bairro`,
+                           `cli_cidade`, 
+                           `cli_uf`, 
+                           `cli_cep`, 
+                           `cli_telefone`) 
+VALUES (NULL, 'Daniele Barbosa Gutinik', 'Rua: Felipe Bispo,340', 'Parque Ibirapuera', 'Tupã', 'SP', '17602135', '1499795-1607');
